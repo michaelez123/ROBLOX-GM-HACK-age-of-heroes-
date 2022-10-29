@@ -1,41 +1,80 @@
-# Compiled Lua sources
-luac.out
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("GM Hack Scripts | Age Of Heroes", "DarkTheme")
+local plr = game.Players.LocalPlayer
+local plrs = game.Players
 
-# luarocks build files
-*.src.rock
-*.zip
-*.tar.gz
 
-# Object files
-*.o
-*.os
-*.ko
-*.obj
-*.elf
 
-# Precompiled Headers
-*.gch
-*.pch
+if game.PlaceId == 4866692557 then
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-*.def
-*.exp
+-- Player Tab
+local Player = Window:NewTab("Player")
+local PlayerSection = Player:NewSection("Player Scripts")
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+PlayerSection:NewTextBox("Speed", "Change Your Speed", function(speed)
+	plr.Character.Humanoid.WalkSpeed = speed
+end)
 
+
+PlayerSection:NewTextBox("Jump Power", "Change Your Jump Power", function(jump)
+	plr.Character.Humanoid.JumpPower = jump
+end)
+
+
+PlayerSection:NewButton("Teleport To Protected Place (BETA)", "Teleporting You To Protected Place", function()
+	plr.Character.Humanoid.Health = 0
+end)
+
+PlayerSection:NewButton("Reset speed/jump", "Back to the normal speed and jump power", function()
+	plr.Character.Humanoid.WalkSpeed = 16
+	plr.Character.Humanoid.JumpPower = 50
+end)
+
+
+
+
+
+
+
+
+
+-- Troll Tab
+local Troll = Window:NewTab("Troll")
+local TrollSection = Troll:NewSection("Troll Scripts")
+
+
+
+
+
+
+
+
+
+
+
+
+-- More Guis Tab
+local Guis = Window:NewTab("More Guis")
+local GuisSection = Guis:NewSection("More Guis")
+
+GuisSection:NewButton("(FE)", "Commands Hacks", function()
+	loadstring(game:HttpGet(("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"),true))()
+end)
+
+GuisSection:NewButton("(AH)", "Game Hacks", function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/laderite/zenx/main/scripts/Age_of_Gays.lua'))()
+end)
+
+
+
+else
+
+
+
+local errors = Window:NewTab("Error!")
+local errorsSection = errors:NewSection("This is only for the game Age Of Heroes!")
+
+
+
+end
